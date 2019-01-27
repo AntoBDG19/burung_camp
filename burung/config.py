@@ -2,10 +2,12 @@
 
 Use env var to override
 """
+import os
+
 DEBUG = True
 SECRET_KEY = "changeme"
 
-SQLALCHEMY_DATABASE_URI = "sqlite:////tmp/burung.db"
+SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or "sqlite:////burung.db"
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 JWT_BLACKLIST_ENABLED = True
